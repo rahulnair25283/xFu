@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="xFuApp">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>xFu App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="app/styles/main.css" />
+  </head>
+  
+  <body ng-cloak>
+    <md-content id="content" layout="column" layout-align="center center" layout-padding>
+      
+      <div flex class="md-display-4">
+        Welcome to xFu
+      </div class="centered">
+      
+      <div flex>
+        <form ng-controller="MainController">
+          <md-input-container>
+            <input type="file" file-input="files" multiple aria-label="select files to upload"/>
+            <md-button class="md-raised md-primary md-large" ng-click="uploadFile()">
+              Upload
+            </md-button>
+          </md-input-container>
+        </form>
+      </div>
+
+      <div flex>
+        {{uploadMessage}}
+      </div>
+    </md-content>
+    <!-- <div layout="column" layout-align="center center" layout-wrap >
+      
+      
+      
+    </div> -->
+    
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
+    <script src="bower_components/backendless/libs/backendless.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
