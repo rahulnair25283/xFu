@@ -7,37 +7,33 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
     <link rel="stylesheet" href="app/styles/main.css" />
   </head>
   
   <body ng-cloak>
-    <md-content id="content" layout="column" layout-align="center center" layout-padding>
-      
-      <div flex class="md-display-4">
-        Welcome to xFu
-      </div class="centered">
-      
-      <div flex>
-        <form ng-controller="MainController">
-          <md-input-container>
-            <input type="file" file-input="files" multiple aria-label="select files to upload"/>
-            <md-button class="md-raised md-primary md-large" ng-click="uploadFile()">
+    <div style="height: 100%">
+      <div layout="column" layout-fill flex>
+        <md-toolbar class="md-tall">
+          <span class="md-display-4 centered">xFu</span>
+        </md-toolbar>
+        <md-content>
+          <form layout="column" flex layout-padding layout-fill ng-controller="MainController">
+            <md-card>
+              <lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!" drag preview multiple progress>
+              </lf-ng-md-file-input>
+            </md-card>
+            <md-button class="md-raised md-primary md-hue-2" ng-click="uploadFiles()">
               Upload
             </md-button>
-          </md-input-container>
-        </form>
-      </div>
+          </form>
+          
+          <md-divider></md-divider>
 
-      <div flex>
-        {{uploadMessage}}
+        </md-content>
       </div>
-    </md-content>
-    <!-- <div layout="column" layout-align="center center" layout-wrap >
-      
-      
-      
-    </div> -->
-    
+    </div>
+
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>

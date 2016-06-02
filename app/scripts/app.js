@@ -32,7 +32,7 @@ angular.module('xFuApp', [
       }
     }
   }])
-  .config(function($routeProvider) {
+  .config(function($routeProvider, $mdThemingProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/index.html',
@@ -42,6 +42,10 @@ angular.module('xFuApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+    $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('grey');
 
   })
   .run(function() {
