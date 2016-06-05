@@ -12,27 +12,11 @@
   </head>
   
   <body ng-cloak>
-    <div style="height: 100%">
-      <div layout="column" layout-fill flex>
-        <md-toolbar class="md-tall">
-          <span class="md-display-4 centered">xFu</span>
-        </md-toolbar>
-        <md-content>
-          <form layout="column" flex layout-padding layout-fill ng-controller="MainController">
-            <md-card>
-              <lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!" drag preview multiple progress>
-              </lf-ng-md-file-input>
-            </md-card>
-            <md-button class="md-raised md-primary md-hue-2" ng-click="uploadFiles()">
-              Upload
-            </md-button>
-          </form>
-          
-          <md-divider></md-divider>
+    <div id="content" style="height:80%" ng-view></div>
+    <footer flex="none" layout="row" layout-align="center center" style="height:20%">
+        <span class="md-caption" style="color: grey">Developed with <b>Angular Material</b> and <b>Backendless</b></span>
+    </footer>
 
-        </md-content>
-      </div>
-    </div>
 
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -52,6 +36,13 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    
+    <script src="auth/auth.controller.js"></script>
+    <script src="auth/auth.service.js"></script>
+
+    <script src="fileUpload/fileUpload.controller.js"></script>
+    
+
     <script src="scripts/controllers/main.js"></script>
     <!-- endbuild -->
 </body>

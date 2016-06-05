@@ -1,0 +1,20 @@
+<div style="height: 100%">
+  <div layout="column" layout-fill flex>
+    <md-toolbar class="md-tall">
+    <span class="md-display-4 centered">xFu</span>
+    </md-toolbar>
+    <md-content>
+    <form layout="column" flex layout-padding layout-fill ng-controller="MainController">
+      <md-card>
+      <lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!" drag preview multiple progress>
+      </lf-ng-md-file-input>
+      </md-card>
+      <md-button class="md-raised md-primary md-hue-2" ng-click="uploadFiles()">
+      Upload
+      </md-button>
+    </form>
+    
+    <md-divider></md-divider>
+    </md-content>
+  </div>
+</div>
