@@ -6,7 +6,7 @@
 	<div layout="row" layout-align="center start">
 		<md-whiteframe class="md-whiteframe-1dp" flex="20" flex-md="50" flex-sm="66" flex-xs="66" style="margin-top: 50px;">
 			<md-toolbar>
-			<span class="md-toolbar-tools">Login</span>
+				<span class="md-toolbar-tools">Login</span>
 			</md-toolbar>
 			<div layout-padding>
 				<form name="loginForm" ng-controller="AuthController as authCtrl">
@@ -43,9 +43,7 @@
 								ng-disabled="loginForm.email.$error.required || loginForm.email.$error.required || loginForm.password.$error.required">
 								Login
 							</md-button>
-							<!-- <div layout="column" layout-align="center center" ng-show="authCtrl.loginInProgress">
-								<md-progress-circular md-mode="indeterminate"></md-progress-circular>
-							</div> -->
+							<md-progress-circular md-mode="indeterminate" ng-show="authCtrl.loading"></md-progress-circular>
 						</div>
 					</div>
 				</form>

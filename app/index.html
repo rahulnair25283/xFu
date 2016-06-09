@@ -7,16 +7,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
     <link rel="stylesheet" href="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <link rel="stylesheet" href="app/styles/main.css" />
   </head>
   
   <body ng-cloak>
-    <div id="content" style="height:80%" ng-view></div>
-    <footer flex="none" layout="row" layout-align="center center" style="height:20%">
-        <span class="md-caption" style="color: grey">Developed with <b>Angular Material</b> and <b>Backendless</b></span>
-    </footer>
-
+    <div id="content" layout="row" flex style="height:100%" ui-view></div>
 
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
@@ -31,11 +29,14 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/lf-ng-md-file-input/dist/lf-ng-md-file-input.js"></script>
     <script src="bower_components/backendless/libs/backendless.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+
+    <script src="layout/layout.controller.js"></script>
     
     <script src="auth/auth.controller.js"></script>
     <script src="auth/auth.service.js"></script>

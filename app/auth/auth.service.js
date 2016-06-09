@@ -31,8 +31,29 @@ angular.module('service.authentication', [])
 			return response;
 		}
 
+		service.logout = function() {
+
+			var response = {
+				userLoggedOut: false,
+				error: null
+			}
+
+			try {
+				Backendless.UserService.logout();
+				response.userLoggedOut = true;
+			} catch(err) {
+				response.userLoggedIn = false;
+				response.error = err;
+
+				console.log("oops.. something went wrong!");
+				console.log("got " + err.statusCode + ": " + err.message);	
+			}
+
+			return response;
+		}
+
 		service.isAuthenticated = function() {
-			getCurrentUser() != null;
+			return getCurrentUser() != null;
 		}
 
 		function getCurrentUser() {
@@ -41,7 +62,7 @@ angular.module('service.authentication', [])
 			}
 
 			try {
-				currentUser = Backendless.UserService.getCurrenctUser();	
+				currentUser = Backendless.UserService.getCurrentUser();	
 			} catch (err) {
 				currentUser = null;
 				console.log("A current user could not be found!")
@@ -50,6 +71,8 @@ angular.module('service.authentication', [])
 
 			return currentUser;
 		}
+
+		service.getCurrentUser = getCurrentUser;
 
 
 	}]);

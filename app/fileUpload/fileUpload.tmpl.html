@@ -1,16 +1,19 @@
-<div layout="column" layout-fill flex>
-	<md-toolbar class="md-tall">
-		<span class="md-display-4 centered">xFu</span>
-	</md-toolbar>
+<div layout="column" layout-fill flex ng-controller="FileUploadController as fileUploadCtrl">
+	<!-- <md-toolbar>
+		<div layout="row" layout-align="space-between center">
+			<span class="md-display-2">xFu</span>
+			<ng-md-icon icon="account_circle" size="50"></ng-md-icon>
+			<span>{{fileUploadCtrl.currentUser.name}}</span>
+		</div>
+	</md-toolbar> -->
 	<md-content>
-		<form layout="column" flex layout-padding layout-fill ng-controller="FileUploadController as fileUploadCtrl">
-			<span>{{message}}</span>
+		<form layout="column" flex layout-padding layout-fill>
 			<md-card>
 				<lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!" drag preview multiple progress>
 				</lf-ng-md-file-input>
 			</md-card>
-			<md-button class="md-raised md-primary md-hue-2">
-			Upload
+			<md-button class="md-raised md-primary" ng-click="fileUploadCtrl.uploadFiles()">
+				Upload
 			</md-button>
 		</form>
 	</md-content>
