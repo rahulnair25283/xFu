@@ -1,13 +1,18 @@
 <div layout="column" layout-fill flex>
 	<md-content>
-		<form>
-			<md-card>
-				<lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!" drag preview multiple progress>
+		<form name="uploadForm">
+			<div layout="column" layout-fill layout-margin>
+				<lf-ng-md-file-input lf-files="files" lf-drag-and-drop-label="Drag and Drop here!"  lf-api="api" drag preview multiple progress lf-required>
 				</lf-ng-md-file-input>
-			</md-card>
-			<md-button class="md-raised md-primary" ng-click="uploadCtrl.uploadFiles()">
-				Upload
-			</md-button>
+				<div ng-messages="uploadForm.files.$error">
+	            	<div ng-message="required">Please select files to upload.</div>
+				</div>
+			</div>
+			<div>
+				<md-button class="md-raised md-primary" ng-click="uploadCtrl.uploadFiles(); api.removeAll()" ng-disabled="uploadForm.$invalid">
+					Upload
+				</md-button>
+			</div>
 		</form>
 	</md-content>
 </div>
