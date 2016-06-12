@@ -1,78 +1,61 @@
 'use strict';
 
 angular.module('service.authentication', [])
-	.service('AuthService', ['$timeout', function($timeout) {
+	.service('AuthService', ['$q', function($q) {
 
-		var service = this;
-		
-		var currentUser;
+	var service = this;
 
-		service.login = function(credentials) {
-			console.log("In AuthService, attempting to login...");
-			
-			var response = {
-				userLoggedIn: false,
-				error: null
-			};
+	var currentUser;
 
-			try {
-				currentUser = Backendless.UserService.login(credentials.email, credentials.password, true);
-				response.userLoggedIn = true;
-				
-				console.log("Hurray!! You have logged-in successfully!");
-			} catch(err) {
-				response.userLoggedIn = false;
-				response.error = err;
-				
-				console.log("oops.. something went wrong!");
-				console.log("got " + err.statusCode + ": " + err.message);
-			}
+	service.login = function(credentials) {
+		console.log("In AuthService, attempting to login...");
 
-			return response;
+		var response = {
+			userLoggedIn: false,
+			error: null
+		};
+
+		try {
+			currentUser = Backendless.UserService.login(credentials.email, credentials.password, true);
+			response.userLoggedIn = true;
+		} catch (err) {
+			response.userLoggedIn = false;
+			response.error = err;
 		}
 
-		service.logout = function() {
+		return response;
+	}
 
-			var response = {
-				userLoggedOut: false,
-				error: null
-			}
+	service.logout = function() {
 
-			try {
-				Backendless.UserService.logout();
-				response.userLoggedOut = true;
-			} catch(err) {
-				response.userLoggedIn = false;
-				response.error = err;
+		var response = {
+			userLoggedOut: false,
+			error: null
+		};
 
-				console.log("oops.. something went wrong!");
-				console.log("got " + err.statusCode + ": " + err.message);	
-			}
-
-			return response;
+		try {
+			Backendless.UserService.logout()
+			currentUser = null;
+			response.userLoggedOut = true;
+		} catch (err) {
+			response.userLoggedOut = false;
+			response.error = err;
 		}
 
-		service.isAuthenticated = function() {
-			return getCurrentUser() != null;
-		}
+		return response;
+	}
 
-		function getCurrentUser() {
-			if (currentUser) {
-				return currentUser;
-			}
+	service.isAuthenticated = function() {
+		return getCurrentUser() != null;
+	}
 
-			try {
-				currentUser = Backendless.UserService.getCurrentUser();	
-			} catch (err) {
-				currentUser = null;
-				console.log("A current user could not be found!")
-				console.log("got " + err.statusCode + ": " + err.message);
-			}
-
+	function getCurrentUser() {
+		if (currentUser) {
 			return currentUser;
-		}
+		} 
 
-		service.getCurrentUser = getCurrentUser;
+		return Backendless.UserService.getCurrentUser();
+	}
 
-
-	}]);
+	service.getCurrentUser = getCurrentUser;
+}]);

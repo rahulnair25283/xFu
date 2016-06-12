@@ -1,0 +1,20 @@
+/*.lf-ng-md-file-input .lf-ng-md-file-input-preview-container {
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+  	border-radius: 0px;
+}
+
+.lf-ng-md-file-input .lf-ng-md-file-input-container {
+	-moz-border-radius: 0px;
+	- webkit-border-radius: 0px;
+  	border-radius: 0px;
+ }*/
+
+ .error-message {
+ 	color: red;
+ 	font-size: 14px;
+ }
+
+ .active-module {
+ 	background-color: #e1f5fe;
+ }

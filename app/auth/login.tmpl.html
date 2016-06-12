@@ -1,15 +1,24 @@
 <div id="loginView" layout-fill flex>
-	<div layout="column" layout-align="center center">
+	<header layout="column" layout-align="start center">
 		<span class="md-display-4">xFu</span>
 		<span>Feed us your data</span>
+	</header>
+	
+	<div layout="column" layout-align="center center" style="margin-top: 50px">
+		<div ng-messages="authCtrl.serverError">
+			<div ng-message="hasError" class="error-message">
+				{{authCtrl.serverError.errorMessage}}
+			</div>
+		</div>
 	</div>
+	
 	<div layout="row" layout-align="center start">
-		<md-whiteframe class="md-whiteframe-1dp" flex="20" flex-md="50" flex-sm="66" flex-xs="66" style="margin-top: 50px;">
+		<md-whiteframe class="md-whiteframe-1dp" flex="20" flex-md="50" flex-sm="66" flex-xs="66" style="margin-top: 20px">
 			<md-toolbar>
 				<span class="md-toolbar-tools">Login</span>
 			</md-toolbar>
 			<div layout-padding>
-				<form name="loginForm" ng-controller="AuthController as authCtrl">
+				<form name="loginForm">
 					<div layout="column">
 						<md-input-container>
 							<label>Email</label>
