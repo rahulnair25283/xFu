@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('download', [
+	'service.download'
 	])
 	.config(['$stateProvider', function($stateProvider) {
 		$stateProvider
@@ -8,12 +9,17 @@ angular.module('download', [
 				url: '/download',
 				parent: 'main',
 				templateUrl: 'download/download.tmpl.html',
+				controller: 'DownloadController',
+                controllerAs: 'downloadCtrl',
 				data: {
 					authRequired: true
 				}
 
 			});
 	}])
-	.controller('DownloadController', ['$scope', function ($scope) {
+	.controller('DownloadController', ['$scope', 'DownloadService', function ($scope, DownloadService) {
 		
+		var ctrl = this;
+
+		ctrl.files = DownloadService.listFiles();
 	}]);

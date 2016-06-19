@@ -56,10 +56,9 @@
 				</md-button>
 			</div>
 		</md-toolbar>
-		<div layout="row" style="height:80%" ui-view></div>
-		<!-- <div layout="row" style="height:80%" ui-view="welcome" ng-show="!mainCtrl.currentModule"></div> -->
-		<footer flex="none" layout="row" layout-align="center center" style="height:20%">
-    		<span class="md-caption" style="color: grey">Developed with <b>Angular Material</b> and <b>Backendless</b></span>
+		<div layout="row" flex="90" ui-view></div>
+		<footer layout="row" layout-align="center center" flex="10" ng-show="mainCtrl.mediaGreaterThanMedium()">
+    		<span class="md-caption">Developed with <b>Angular Material</b> and <b>Backendless</b></span>
 		</footer>
 	</div>
 </div>

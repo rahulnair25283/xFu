@@ -20,11 +20,12 @@ angular.module('main', [
 				templateUrl: 'main/welcome.tmpl.html',
 				data: {
 					authRequired: true
-				}	
+				}
 			});
 	})
-	.controller('MainController', ['$scope', '$mdSidenav', 'AuthService', function($scope, $mdSidenav,
-		AuthService) {
+	.controller('MainController', ['$scope', '$mdSidenav', '$mdMedia', 'AuthService', function($scope, $mdSidenav,
+		$mdMedia, AuthService) {
+		
 		var ctrl = this;
 
 		ctrl.currentModule;
@@ -65,5 +66,9 @@ angular.module('main', [
 				return ctrl.currentModule === module;
 			}
 			return false;
+		}
+
+		ctrl.mediaGreaterThanMedium = function() {
+			return $mdMedia('gt-md');
 		}
 	}]);

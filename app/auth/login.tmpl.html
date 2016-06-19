@@ -23,7 +23,7 @@
 						<md-input-container>
 							<label>Email</label>
 							<input type="email" name="email" 
-								ng-model="credentials.email" 
+								ng-model="authCtrl.credentials.email" 
 								required 
 								md-autofocus
 								aria-label="Enter your registered email address">
@@ -37,7 +37,7 @@
 						<md-input-container>
 							<label>Password</label>
 							<input type="password" name="password" 
-								ng-model="credentials.password" 
+								ng-model="authCtrl.credentials.password" 
 								required
 								aria-label="Enter your password">
 							</input>
@@ -47,12 +47,11 @@
 						</md-input-container>
 						
 						<div layout="column" layout-fill>
-							<md-button type="submit" ng-click="authCtrl.loginWith(credentials)" 
+							<md-button type="submit" ng-click="authCtrl.login()" 
 								class="md-raised md-primary"
 								ng-disabled="loginForm.email.$error.required || loginForm.email.$error.required || loginForm.password.$error.required">
 								Login
 							</md-button>
-							<md-progress-circular md-mode="indeterminate" ng-show="authCtrl.loading"></md-progress-circular>
 						</div>
 					</div>
 				</form>

@@ -1,3 +1,7 @@
+.centered {
+	text-align: center;
+}
+
 .lf-ng-md-file-input .lf-ng-md-file-input-preview-container {
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
@@ -17,4 +21,17 @@
 
  .active-module {
  	background-color: #e1f5fe;
+ }
+
+ .block-ui-message {
+ 	padding: 10px;
+ 	font-size: 15px;
+ }
+
+ footer {
+ 	color: grey;
+ }
+
+ .card-media {
+ 	text-align: center;
  }

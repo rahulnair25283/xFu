@@ -12,15 +12,17 @@ angular.module('xFuApp', [
   	'ngMaterial',
   	'ngMdIcons',
   	'lfNgMdFileInput',
+  	'blockUI',
   	'main',
   	'authentication',
   	'upload',
   	'download',
   	'settings'
 	])
-	.config(['$urlRouterProvider', '$mdThemingProvider', function($urlRouterProvider, $mdThemingProvider) {
-		$urlRouterProvider.otherwise('/');
-
+	.config(['$urlRouterProvider', '$mdThemingProvider', 'blockUIConfig', function($urlRouterProvider,
+		$mdThemingProvider, blockUIConfig) {
+		
+		// theme config
 		$mdThemingProvider.theme('default')
 			.primaryPalette('light-blue', {
 				'default': '900'
@@ -30,6 +32,11 @@ angular.module('xFuApp', [
 			})
 			.warnPalette('red');
 
+		// block ui config
+		blockUIConfig.message = 'Just a moment...';
+
+		// defualt route config
+		$urlRouterProvider.otherwise('/');
 	}])
 	.run(['$rootScope', '$state', 'AuthService', function($rootScope, $state, AuthService) {
 		initBackendLess();
