@@ -31,7 +31,7 @@
 		      	</md-list-item>
 		      	<md-divider></md-divider>
 		      	<md-list-item ng-controller="AuthController as authCtrl">
-			        <md-button flex ng-click="authCtrl.logout()">
+			        <md-button flex ng-click="authCtrl.confirmLogout($event)">
 				    	<md-item-content md-ink-ripple layout="row" layout-align="start center">
 					    	<i class="material-icons">exit_to_app</i>
 					    	<div class="inset">Logout</div>

@@ -37,9 +37,9 @@ angular.module('main', [
 				url: 'upload'
 			},
 			{
-				title: 'Download',
-				icon: 'file_download',
-				url: 'download'
+				title: 'View',
+				icon: 'view_list',
+				url: 'view'
 			}
 		];
 

@@ -16,7 +16,8 @@ angular.module('xFuApp', [
   	'main',
   	'authentication',
   	'upload',
-  	'download',
+  	'viewFiles',
+  	'delete',
   	'settings'
 	])
 	.config(['$urlRouterProvider', '$mdThemingProvider', 'blockUIConfig', function($urlRouterProvider,
@@ -38,7 +39,12 @@ angular.module('xFuApp', [
 		// defualt route config
 		$urlRouterProvider.otherwise('/');
 	}])
-	.run(['$rootScope', '$state', 'AuthService', function($rootScope, $state, AuthService) {
+	.constant('AppInfo', {
+		APPLICATION_ID: '2F6AA189-93EC-ED97-FF04-59233599E500',
+		SECRET_KEY: '597E84D6-89CB-B2AC-FF53-F2D59E201900',
+		APP_VERSION: 'v1'
+	})
+	.run(['$rootScope', '$state', 'AuthService', 'AppInfo', function($rootScope, $state, AuthService, AppInfo) {
 		initBackendLess();
 
 		$rootScope.$on('$stateChangeStart', function(event, toState) {
@@ -48,10 +54,6 @@ angular.module('xFuApp', [
 		});
 
 		function initBackendLess() {
-			var APPLICATION_ID = '2F6AA189-93EC-ED97-FF04-59233599E500';
-			var SECRET_KEY = '597E84D6-89CB-B2AC-FF53-F2D59E201900';
-			var APP_VERSION = 'v1';
-
-			Backendless.initApp(APPLICATION_ID, SECRET_KEY, APP_VERSION);
+			Backendless.initApp(AppInfo.APPLICATION_ID, AppInfo.SECRET_KEY, AppInfo.APP_VERSION);
 		}
 	}]);

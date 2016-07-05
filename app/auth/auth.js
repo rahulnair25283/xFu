@@ -15,8 +15,8 @@ angular.module('authentication', [
 
 		});
 	})
-	.controller('AuthController', ['$scope', '$state', '$timeout', 'blockUI', 'AuthService', function($scope, $state,
-		$timeout, blockUI, AuthService) {
+	.controller('AuthController', ['$scope', '$state', '$timeout', '$mdDialog', 'blockUI', 'AuthService', function($scope, $state,
+		$timeout, $mdDialog, blockUI, AuthService) {
 
 		var ctrl = this;
 
@@ -56,7 +56,22 @@ angular.module('authentication', [
 			}, 1000);
 		}
 
-		ctrl.logout = function() {
+		ctrl.confirmLogout = function(event) {
+			// Appending dialog to document.body to cover sidenav in docs app
+			var confirm = $mdDialog.confirm()
+				.title('Please confirm')
+				.textContent('Do you really wish to logout of this amazing app?')
+				.ariaLabel('Logout confirmation')
+				.targetEvent(event)
+				.ok('Logout')
+				.cancel('Hell No');
+			
+			$mdDialog.show(confirm).then(function() {
+				logout();
+			}, function() {});
+		};
+
+		function logout() {
 			
 			console.log('attempting to logout');
 			

@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('service.download', [
+angular.module('service.viewFiles', [
 	'service.authentication'
 	])
-	.service('DownloadService', ['AuthService', function (AuthService) {
+	.service('ViewService', ['AuthService', function (AuthService) {
 
 		var service = this;
 
